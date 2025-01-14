@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=69.0"]
+build-backend = "setuptools.build_meta"
+
+# https://github.com/qiskit-community/ecosystem/issues/462
+[tool.setuptools]
+py-modules = []
+include-package-data = false
+
+[tool.setuptools.packages.find]
+include = ['libre_finance*']
+
+[project]
+name = "libre-finance"
+version = "0.0.1"
+description = "This tool helps financial consumers freely utilize financial services by interest calculating."
+authors = [
+    { name = "minwook-shin", email = "minwook0106@gmail.com" },
+]
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+]
+
+[project.optional-dependencies]
+dev = [
+    "build",
+    "twine"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/minwook-shin/libre-finance"
+"Bug Tracker" = "https://github.com/minwook-shin/libre-finance/issues"
