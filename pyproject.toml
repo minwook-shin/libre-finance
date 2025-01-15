@@ -12,7 +12,7 @@ include = ['libre_finance*']
 
 [project]
 name = "libre-finance"
-version = "0.0.1"
+version = "0.1.0"
 description = "This tool helps financial consumers freely utilize financial services by interest calculating."
 authors = [
     { name = "minwook-shin", email = "minwook0106@gmail.com" },
@@ -32,6 +32,11 @@ dev = [
     "pytest",
     "build",
     "twine"
+]
+
+sql = [
+    "PyMySQL==1.1.1",
+    "SQLAlchemy==2.0.37"
 ]
 
 [project.urls]

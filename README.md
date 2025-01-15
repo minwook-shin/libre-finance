@@ -44,6 +44,31 @@ print(f"amount: {lf.amount}")
 - Deposit interest (taxable/non-taxable)
 - Savings interest (taxable/non-taxable)
 
+
+- sql query
+
+if you want to use sql feature, you can install the library with the following command.
+
+```bash
+pip install libre-finance[sql]
+```
+
+```python
+from libre_finance.database import MariaDBTable
+
+t = MariaDBTable(db_name='db', user='user', passwd='passwd', host='127.0.0.1', port=3306)
+```
+
+and you can use the sql command as follows.
+
+```sql
+SELECT *
+FROM `finance`
+where product = "deposit" and month = 6
+order by total_interest desc
+limit 5;
+```
+
 ## ToDo List
 
 - Bond interest
