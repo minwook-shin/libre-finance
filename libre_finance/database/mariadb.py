@@ -10,7 +10,7 @@ from libre_finance.database.spec import FinanceData
 
 
 class MariaDBTable:
-    def __init__(self, db_name, user, passwd, host, port, table_name='finance'):
+    def __init__(self, db_name: str, user: str, passwd: str, host: str, port: int, table_name: str = 'finance'):
         self.metadata = MetaData()
         self.main_table = Table(
             table_name,

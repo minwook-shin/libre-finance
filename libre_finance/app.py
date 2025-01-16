@@ -1,23 +1,25 @@
 import math
+from typing import Type
 
 from libre_finance.constants import KRW_INTEREST_TAX, USD_INTEREST_TAX
 from libre_finance.database.spec import FinanceData
 
 
 class LibreFinance:
-    def __init__(self, amount, currency='KRW'):
-        self.amount = amount
-        self.original_amount = amount
-        self.currency = currency
-        self.total_interest = 0
+    def __init__(self, amount: int, currency: str = 'KRW'):
+        self.amount: int = amount
+        self.original_amount: int = amount
+        self.currency: str = currency
+        self.total_interest: int = 0
         # set interest tax
         if currency == 'KRW':
-            self.interest_tax = KRW_INTEREST_TAX
+            self.interest_tax: float = KRW_INTEREST_TAX
         else:
-            self.interest_tax = USD_INTEREST_TAX
-        self.history = FinanceData
+            self.interest_tax: float = USD_INTEREST_TAX
+        self.history: Type[FinanceData] = FinanceData
 
-    def calculate_deposit(self, month, annual_interest_rate=0.0, is_tax=True, is_pretty=True):
+    def calculate_deposit(self, month: int, annual_interest_rate: float = 0.0, is_tax: bool = True,
+                          is_pretty: bool = True) -> str | int:
         # calculate monthly interest
         interest_rate = annual_interest_rate / 12
         for _ in range(month):
@@ -45,7 +47,8 @@ class LibreFinance:
         else:
             return return_interest
 
-    def calculate_savings(self, month, annual_interest_rate=0.0, monthly_deposit=0, is_tax=True, is_pretty=True):
+    def calculate_savings(self, month: int, annual_interest_rate: float = 0.0, monthly_deposit: int = 0,
+                          is_tax: bool = True, is_pretty: bool = True) -> str | int:
         # calculate monthly interest
         interest_rate = annual_interest_rate / 12
         self.amount += monthly_deposit
